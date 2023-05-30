@@ -1,95 +1,64 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-
+import styles from "./page.module.css";
+import { redirect } from "next/navigation";
+import Image from "next/image";
 export default function Home() {
+  async function generatePDF(data: FormData) {
+    "use server";
+    const client_PID = data.get("PID");
+    const survey_reason = data.get("survey_reason") as string;
+    return redirect(`/invitation?PID=${client_PID}&reason=${survey_reason}`);
+  }
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+      <Image
+        src="/nora_logo.png"
+        style={{
+          margin: "auto",
+        }}
+        height={70}
+        width={150}
+        alt="NORA logo"
+      />
+      <h1 style={{ textAlign: "center", marginTop: 35 }}>
+        Client Satisfaction <br />
+        Survey Invitation Generator
+      </h1>
+      <form action={generatePDF} id="PID_form" className={styles.card}>
+        <label>Reason</label>
+        <select
+          name="survey_reason"
+          id="survey_reason"
+          required
+          defaultValue=""
         >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+          <option value="" disabled hidden>
+            Select Survey Reason
+          </option>
+          <option value="a_change_in_level_of_care">
+            Change in Level of Care
+          </option>
+          <option value="a_six_month_check_in">Six Month Check In</option>
+          <option value="a_completion_of_the_treatment_program">
+            Program Exit
+          </option>
+        </select>
+        <label>PID</label>
+        <input placeholder="Client PID" name="PID" id="client_PID" type="text" required />
+        <button
+          type="submit"
+          style={{
+            marginTop: 10,
+            padding: 5,
+            color: "#fff",
+            background: "#5D4E60",
+            border: 0,
+            fontSize: 25,
+            borderRadius: 5,
+          }}
         >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+          Generate Survey Invitation
+        </button>
+      </form>
     </main>
-  )
+  );
 }
