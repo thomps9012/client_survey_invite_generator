@@ -1,0 +1,26 @@
+{
+    "name": "Client Satisfaction Survey Invitation Generator",
+    "short_name": "Survey Invitation Generator",
+    "icons": [
+        {
+            "src": "client_survey_qr_code.png",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "client_survey_qr_code.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "client_survey_qr_code.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "theme_color": "#5D4E60",
+    "background_color": "#FFFFFF",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+}

@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 const InvitationDocument = ({
   PID,
   reason,
@@ -76,6 +77,9 @@ export default function PDFInvitation({
 }: {
   searchParams: { PID: string; reason: string };
 }) {
+  useEffect(() => {
+    window.print();
+  }, []);
   const printPage = () => {
     window.print();
   };
