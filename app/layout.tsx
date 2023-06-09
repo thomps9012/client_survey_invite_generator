@@ -7,6 +7,64 @@ export const metadata = {
   title: "Client Survey Invitation",
   description:
     "An online tool to generate client satisfaction survey invitations",
+  icons: {
+    icon: "/pwa_icon.png",
+    shortcut: "/pwa_icon.png",
+    apple: "/pwa_icon.png",
+  },
+  applicationName: "Client Survey Invitation",
+  referrer: "origin-when-cross-origin",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://client-survey-invite-generator.vercel.app",
+    title: "Client Survey Invitation",
+    description:
+      "An online tool to generate client satisfaction survey invitations",
+    image: "https://client-survey-invite-generator.vercel.app/pwa_icon.png",
+    siteName: "Client Survey Invitation",
+  },
+  keywords: [
+    "Client",
+    "Satisfaction",
+    "Survey",
+    "Invite",
+    "Generator",
+    "Northern Ohio Recovery Association",
+  ],
+  authors: [{ name: "Samuel Thompson", url: "tszlau.com" }],
+  colorScheme: "light",
+  creator: "Samuel Thompson",
+  publisher: "Samuel Thompson",
+  metadataBase: new URL("https://client-survey-invite-generator.vercel.app"),
+  themeColor: "#5D4E60",
+  manifest: "/manifest.json",
+  twitter: {
+    card: "summary_large_image",
+    title: "Client Survey Invitation",
+    description:
+      "An online tool to generate client satisfaction survey invitations",
+    siteID: "1640747945896169472",
+    creator: "@tszlau_0",
+    creatorId: "1640747945896169472",
+    images: ["https://client-survey-invite-generator.vercel.app/pwa_icon.png"],
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  appleWebApp: {
+    title: "Client Survey Invitation",
+    statusBarStyle: "purple-translucent",
+    startupImage: ["/pwa_icon.png"],
+  },
+  appLinks: {
+    web: {
+      url: "https://client-survey-invite-generator.vercel.app",
+      should_fallback: true,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -16,76 +74,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/pwa_icon.png" />
-        <meta name="application-name" content="Client Survey Invitation" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta
-          name="apple-mobile-web-app-title"
-          content="Client Survey Invitation"
-        />
-        <meta
-          name="description"
-          content="An online tool to generate client satisfaction survey invitations"
-        />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="msapplication-TileColor" content="#5D4E60" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <meta name="theme-color" content="#5D4E60" />
-        <link rel="apple-touch-icon" href="/pwa_icon.png" />
-        <link
-          rel="apple-touch-icon"
-          sizes="152x152"
-          href="/pwa_icon.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/pwa_icon-retina.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="167x167"
-          href="/pwa_icon.png"
-        />
-
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/pwa_icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/pwa_icon.png"
-        />
-        <link rel="manifest" href="/manifest.json" />
-        <link
-          rel="mask-icon"
-          href="/pwa_icon.png"
-          color="#5D4E60"
-        />
-        <link rel="shortcut icon" href="/pwa_icon.png" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Client Survey Invitation" />
-        <meta
-          property="og:description"
-          content="An online tool to generate client satisfaction survey invitations"
-        />
-        <meta property="og:site_name" content="Client Survey Invitation" />
-        <meta
-          property="og:url"
-          content="https://client-survey-invite-generator.vercel.app"
-        />
-        <meta
-          property="og:image"
-          content="https://client-survey-invite-generator.vercel.app/pwa_icon.png"
-        />
-      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
